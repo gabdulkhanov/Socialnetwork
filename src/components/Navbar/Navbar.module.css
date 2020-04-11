@@ -1,0 +1,21 @@
+.mainnav {
+    grid-area: n;  
+    background-color: #ff0;
+  }
+  .item {
+    color: #008;
+    margin: 5px;
+    padding: 20px;
+    text-align: center;
+  }
+  .item:hover {
+    background-color: #888;
+    cursor: pointer;
+  }
+ .item a {
+    color: white;
+    text-decoration: none;
+  }
+  .item a.active {
+    color: red;
+  }
