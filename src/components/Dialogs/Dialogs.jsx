@@ -1,21 +1,7 @@
 import React from 'react';
 import s from './Dialogs.module.css';
-import { NavLink } from 'react-router-dom';
-
-const DialogItem = (props) => {
-    let path = "/dialogs/" + props.id;
-    return (        
-        <div className={s.item_dlg}>
-                <NavLink to={path}>{props.name}</NavLink>
-        </div>
-    );
-}
-
-const Message = (props) => {  
-    return (        
-        <div className={s.message}>{props.message} {props.likeCount}</div>
-    );
-}
+import DialogItem from './DialogItem/DialogsItem';
+import Message from './Message/Message';
 
 const Dialogs = (props) => {
 
@@ -28,7 +14,7 @@ const Dialogs = (props) => {
     ];
 
     let dialogElements = 
-        dialogData.map( (d) =>  <DialogItem name = {d.name} id={d.id} />);
+        dialogData.map( (d) =>  <DialogItem name = {d.name} id={d.id} />);        
 
     let messageData = [
         { id: 1, message: 'Возможно.', likesCounts : 43 },
