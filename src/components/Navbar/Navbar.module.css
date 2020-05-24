@@ -4,8 +4,9 @@
   }
   .item {
     color: #008;
+    background-color: #666;
     margin: 5px;
-    padding: 20px;
+    padding: 5px;
     text-align: center;
   }
   .item:hover {
@@ -15,6 +16,10 @@
  .item a {
     color: black;
     text-decoration: none;
+    font: 26px Arial sans-serif;
+  }
+  .item a:hover {
+    color: brown;   
   }
   .item a.active {
     color: red;

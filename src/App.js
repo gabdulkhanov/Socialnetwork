@@ -5,6 +5,7 @@ import Navbar from './components/Navbar/Navbar.jsx';
 import Profile from './components/Profile/Profile';
 import Dialogs from './components/Dialogs/Dialogs';
 import News from './components/News/News';
+import Settings from './components/Settings/Settings';
 import {Route, BrowserRouter} from "react-router-dom";
 
 const App = (props) => { 
@@ -18,7 +19,8 @@ const App = (props) => {
                         state={props.state.messagePage} /> } />
             <Route path="/profile" render = { () => <Profile 
                         state={props.state.profilePage}/> } />     
-            <Route path="/news" component = {News} />      
+            <Route path="/news" component = {News} />    
+            <Route path="/settings" component = {Settings} />   
           </div>        
       </div>
     </BrowserRouter>
