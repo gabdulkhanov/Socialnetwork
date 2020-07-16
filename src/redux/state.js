@@ -1,3 +1,5 @@
+import { rerenderEntire } from "../render";
+
 let state = {
     profilePage : { 
         posts :  [
@@ -31,9 +33,11 @@ export let addPost = (postMessage) => {
     let newPost = {
         id: 6,
         message: postMessage,
+        age: 27,
         likesCounts: 33
     };
     state.profilePage.posts.push(newPost);
+    rerenderEntire(state)
 }
 
 
