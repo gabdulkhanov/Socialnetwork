@@ -6,7 +6,8 @@ let state = {
             { id: 1, message: 'Hello name Jon', age : 26 ,  likesCounts : 43 },
             { id: 2, message: 'It\'s my first.', age : 24 , likesCounts : 1 },
             { id: 3, message: 'Speak English', age : 871 , likesCounts : 9999 }
-        ] 
+        ],
+        newPostText: "qwerty" 
     },
 
     messagePage : {
@@ -28,18 +29,22 @@ let state = {
     }
 }
 
-
-export let addPost = (postMessage) => {    
+export let addPost = () => {    
     let newPost = {
         id: 6,
-        message: postMessage,
+        message: state.profilePage.newPostText,
         age: 27,
         likesCounts: 33
     };
     state.profilePage.posts.push(newPost);
+    state.profilePage.newPostText = '';
     rerenderEntire(state)
 }
 
+export let updateNewPost = (newText) => {    
+    state.profilePage.newPostText = newText;
+    rerenderEntire(state)
+}
 
 export default state;
 
