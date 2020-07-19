@@ -3,7 +3,7 @@ import s from './MyPosts.module.css';
 import Post from './Post/Post';
 
 const MyPosts = (props) => {
-
+    debugger;
     let postElements = 
         props.posts.map( (p) =>  <Post message = {p.message} 
                 age = {p.age} count_like = {p.likesCounts} />);
@@ -12,14 +12,14 @@ const MyPosts = (props) => {
    let newPost = React.createRef();
 
     let addPost = () => {           
-        props.addPost();     
+        props.dispatch({type: 'ADD-POST'});     
     }
 
     let changeNewPost = () => {             
         let text = newPost.current.value;
-        props.updateNewPost(text);
+        props.dispatch({type: 'UPDATE-NEW-POST', newText: text});
     }
-
+    
     return (
         <div className={s.myposts}>           
             <div>

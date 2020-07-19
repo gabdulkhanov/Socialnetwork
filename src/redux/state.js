@@ -38,26 +38,30 @@ let store = {
         alert("Tree");
     },
 
-    addPost() {           
-        let newPost = {
-            id: 6,
-            message: this._state.profilePage.newPostText,
-            age: 27,
-            likesCounts: 33
-        };
-        this._state.profilePage.posts.push(newPost);
-        this._state.profilePage.newPostText = '';
-        this._rerenderEntireTree(this._state)
-    },
-
-    updateNewPost(newText) {    
-        this._state.profilePage.newPostText = newText;
-        this._rerenderEntireTree(this._state);
-    },
-
     subscibe(observer)  {
         this._rerenderEntireTree = observer;
+    },
+  
+    
+    dispatch(action) {
+        debugger;
+        if (action.type === 'ADD-POST') {
+                let newPost = {
+                id: 6,
+                message: this._state.profilePage.newPostText,
+                age: 27,
+                likesCounts: 33
+            };
+            this._state.profilePage.posts.push(newPost);
+            this._state.profilePage.newPostText = '';
+            this._rerenderEntireTree(this._state);
+        }
+        else if (action.type === 'UPDATE-NEW-POST') {
+            this._state.profilePage.newPostText = action.newText;
+            this._rerenderEntireTree(this._state);
+        }
     }
+    
 }
 
 export default store;
