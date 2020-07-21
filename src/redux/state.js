@@ -1,5 +1,7 @@
 const ADD_POST = 'ADD-POST';
 const UPDATE_POST = 'UPDATE-POST';
+const SEND_MESSAGE = 'SEND-MESSAGE';
+const UPDATE_NEW_MESSAGE = 'UPDATE-NEW-MESSAGE';
 
 
 let store = {
@@ -29,7 +31,8 @@ let store = {
                 { id: 3, message: 'Thanks!' , likesCounts : 67 },
                 { id: 4, message: 'Yo Yo Yo' , likesCounts : 75},
                 { id: 5, message: 'Some message' , likesCounts : 3 }
-            ]
+            ],
+            newMessageText: "YO YO YO"
         }
     },
 
@@ -47,7 +50,7 @@ let store = {
 
     dispatch(action) {     
         if (action.type === ADD_POST) {
-                let newPost = {
+            let newPost = {
                 id: 6,
                 message: this._state.profilePage.newPostText,
                 age: 27,
@@ -61,6 +64,21 @@ let store = {
             this._state.profilePage.newPostText = action.newText;
             this._rerenderEntireTree(this._state);
         }
+
+        else if (action.type === SEND_MESSAGE) {
+            let newMessage = {
+                id: 6,
+                message: this._state.messagePage.newMessageText,                
+                likesCounts: 47
+            };
+            this._state.messagePage.messages.push(newMessage);
+            this._state.messagePage.newMessageText = '';
+            this._rerenderEntireTree(this._state);
+        }
+        else if (action.type === UPDATE_NEW_MESSAGE) {
+            this._state.messagePage.newMessageText = action.newMessageText;
+            this._rerenderEntireTree(this._state);
+        }
     }
     
 }
@@ -68,6 +86,10 @@ let store = {
 export const addPostActionCreator = () => { return {type: ADD_POST}};
 
 export const updatePostActionCreator = (text) => { return {type: UPDATE_POST, newText: text}};
+
+export const sendActionCreator = () => { return {type: SEND_MESSAGE}};
+
+export const updateMessageActionCreator = (body) => { return {type: UPDATE_NEW_MESSAGE, newMessageText: body}};
 
 export default store;
 
