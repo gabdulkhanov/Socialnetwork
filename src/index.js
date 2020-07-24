@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
 import './index.css';
 import App from './App';
-import store from './redux/state';
+import store from './redux/store';
 
 
-let rerenderEntireTree = (state) => {
+let rerenderEntireTree = () => {
     ReactDOM.render( <App state = {store.getState()} 
                     dispatch = {store.dispatch.bind(store)} store = {store}/>, 
                     document.getElementById('root') );
