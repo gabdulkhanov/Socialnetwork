@@ -34,7 +34,7 @@ let store = {
             ],
             newMessageText: "YO YO YO"
         },
-        sidebar: {}
+        sidebarPage : {}      
     },
 
     getState() {
@@ -51,8 +51,8 @@ let store = {
 
     dispatch(action) {     
         this._state.profilePage = profileReducer(this._state.profilePage, action);
-        this._state.messagePage = dialogsReducer(this._state.messagePage, action);
-        this._state.sidebar = sidebarReducer(this._state.sidebar, action);
+        this._state.messagePage = dialogsReducer(this._state.messagePage, action);  
+        this._state.sidebarPage = sidebarReducer(this._state.sidebarPage, action);    
         this._rerenderEntireTree(this._state);
     }
     

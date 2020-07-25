@@ -1,7 +1,17 @@
 const ADD_POST = 'ADD-POST';
 const UPDATE_POST = 'UPDATE-POST';
 
-const profileReducer = (state, action) => {
+let initialState = {
+    posts :  [
+        { id: 1, message: 'Hello name Jon', age : 26 ,  likesCounts : 43 },
+        { id: 2, message: 'It\'s my first.', age : 24 , likesCounts : 1 },
+        { id: 3, message: 'Speak English', age : 871 , likesCounts : 9999 }
+    ],
+    newPostText: "qwerty" 
+}
+
+
+const profileReducer = (state = initialState, action) => {
     if (action.type === ADD_POST) {
         let newPost = {
             id: 6,
